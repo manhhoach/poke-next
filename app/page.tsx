@@ -2,6 +2,7 @@ import Image from "next/image";
 import SearchInput from "./components/SearchInput";
 import SearchButton from "./components/SearchButton";
 import BallImage from "./components/BallImage";
+import PokemonList from "./components/PokemonList";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
         <div className="flex items-center">
           <SearchInput />
           <SearchButton />
+
         </div>
+        <PokemonList />
       </div>
     </main>
   );
