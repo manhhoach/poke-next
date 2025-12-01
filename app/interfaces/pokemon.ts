@@ -1,4 +1,17 @@
 interface Pokemon {
    name: string;
+   height: number;
+   weight: number;
+   abilities: string[];
+   types: string[];
+   sprites: string[];
+   avatar: string | null;
 }
-export type { Pokemon }
+
+
+interface PokemonType {
+   name: string;
+   color: string;
+}
+
+export type { Pokemon, PokemonType }

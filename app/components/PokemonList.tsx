@@ -1,7 +1,15 @@
-import axios from "axios"
+import { Pokemon } from '../interfaces/pokemon';
+import PokemonCard from './PokemonCard';
 
-export default function PokemonList() {
-   const data = axios.get('https://pokeapi.co/api/v2/pokemon?limit=151').then(res => res.data).catch(err => console.log(err))
-   return <div className=""></div>
+interface PokemonListProps {
+   pokemons: Pokemon[]
+}
+
+export default function PokemonList({ pokemons }: PokemonListProps) {
+   return <div className="w-2/5 mx-auto grid grid-cols-3 gap-10">
+      {
+         pokemons.map((pokemon) => <PokemonCard pokemon={pokemon} key={pokemon.name}></PokemonCard>)
+      }
+   </div>
 
 }
