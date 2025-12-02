@@ -1,18 +1,18 @@
 import Image from "next/image"
-import { Pokemon } from "../interfaces/pokemon"
+import { PokemonDetail } from "../interfaces/pokemon"
 
 interface PokemonCardProps {
-   pokemon: Pokemon
+   pokemon: PokemonDetail
 }
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
-   return <div className="rounded-lg shadow-xl w-full">
-      <div className="flex flex-col">
-         <div className="flex">
-            {pokemon.types.map((type) => <div key={type} className="bg-yellow-300 text-white rounded-full px-3 py-1 m-1 text-sm">{type}</div>)}
-         </div>
+   return <div className="rounded-lg shadow-xl w-full bg-white p-2 cursor-pointer ">
+      <div className="flex flex-col items-center">
          <h3>{pokemon.name}</h3>
+         <div className="flex">
+            {pokemon.typesInfo.map((type) => <div style={{ backgroundColor: type.color }} key={type.name} className={` text-white rounded-full px-3 py-1 m-1 text-sm`}>{type.name}</div>)}
+         </div>
+
          <Image src={pokemon.avatar ?? "/img/pokeball-color.png"} width={120} height={120} alt="" />
-         <button>more</button>
       </div>
    </div>
 }

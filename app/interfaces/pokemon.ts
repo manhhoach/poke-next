@@ -6,6 +6,11 @@ interface Pokemon {
    types: string[];
    sprites: string[];
    avatar: string | null;
+
+}
+
+interface PokemonDetail extends Pokemon {
+   typesInfo: PokemonType[];
 }
 
 
@@ -14,4 +19,4 @@ interface PokemonType {
    color: string;
 }
 
-export type { Pokemon, PokemonType }
+export type { Pokemon, PokemonType, PokemonDetail }

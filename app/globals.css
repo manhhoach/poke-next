@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+@font-face {
+   font-family: "Pokemon";
+   src: url("/fonts/Pokemon.ttf") format("truetype");
+}
+
+@font-face {
+   font-family: "Gen1";
+   src: url("/fonts/Gen1.ttf") format("truetype");
+}
+
+@font-face {
+   font-family: "Gen3";
+   src: url("/fonts/Gen3.ttf") format("truetype");
+}
+
+@font-face {
+   font-family: "Gen4";
+   src: url("/fonts/Gen4.ttf") format("truetype");
+}
+
+@font-face {
+   font-family: "Gen6";
+   src: url("/fonts/Gen6.ttf") format("truetype");
+}
+
+
+
 body {
-   background-color: #F6F8FC;
+   background-color: #d1d1d1;
+   font-family: 'Gen3';
 }
