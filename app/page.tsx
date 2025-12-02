@@ -6,6 +6,7 @@ import PokemonList from "./components/PokemonList";
 import { getPokemons } from './services/pokemonService';
 import { useEffect, useState } from "react";
 import { LIMIT } from "./consts/constant";
+import Pagination from "./components/Pagination";
 
 
 export default function Home() {
@@ -30,10 +31,9 @@ export default function Home() {
 
       <div className="w-full flex flex-col items-center mt-5">
         <Image className="" src={'/img/main.png'} alt="" width={250} height={125} />
-        <div className="flex items-center px-5 py-5">
-          <input type="text" className="shadow-xl rounded-lg" onChange={(e) => { setKeyword(e.target.value) }} />
-        </div>
+        <input type="text" placeholder="Type name here" className="shadow-xl rounded-lg bg-white p-1 mt-5 mb-5" onChange={(e) => { setKeyword(e.target.value) }} />
         <PokemonList pokemons={data} />
+        <Pagination />
       </div>
     </main>
   );
