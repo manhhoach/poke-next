@@ -7,6 +7,7 @@ import { getPokemons } from './services/pokemonService';
 import { useEffect, useState } from "react";
 import { LIMIT } from "./consts/constant";
 import Pagination from "./components/Pagination";
+import Footer from "./components/Footer";
 
 
 export default function Home() {
@@ -24,17 +25,22 @@ export default function Home() {
   }, [keyword, page]);
 
   return (
-    <main className="relative overflow-hidden">
-      <BallImage className="-left-25" width={250} height={250} />
-      <BallImage className="top-10 -right-5" width={250} height={250} />
-      <BallImage className="bottom-5 left-10" width={250} height={250} />
+    <div className="flex flex-col min-h-screen relative overflow-hidden">
+      <main className="  flex-1">
+        <BallImage className="-left-25" width={250} height={250} />
+        <BallImage className="top-10 -right-5" width={250} height={250} />
+        <BallImage className="bottom-5 left-10" width={250} height={250} />
 
-      <div className="w-full flex flex-col items-center mt-5">
-        <Image className="" src={'/img/main.png'} alt="" width={250} height={125} />
-        <input type="text" placeholder="Type name here" className="shadow-xl rounded-lg bg-white p-2 mt-5 mb-5" onChange={(e) => { setKeyword(e.target.value) }} />
-        <PokemonList pokemons={data.results} />
-        <Pagination onPageChange={setPage} page={data.page} totalPages={data.totalPages} />
-      </div>
-    </main>
+        <div className="w-full flex flex-col items-center mt-5">
+          <Image className="" src={'/img/main.png'} alt="" width={250} height={125} />
+          <input type="text" placeholder="Type name here" className="shadow-xl rounded-lg bg-white p-2 mt-5 mb-5" onChange={(e) => { setKeyword(e.target.value) }} />
+          <PokemonList pokemons={data.results} />
+          <Pagination onPageChange={setPage} page={data.page} totalPages={data.totalPages} />
+
+        </div>
+      </main>
+      <Footer />
+    </div>
+
   );
 }
