@@ -6,7 +6,6 @@ interface Pokemon {
    types: string[];
    sprites: string[];
    avatar: string | null;
-
 }
 
 interface PokemonDetail extends Pokemon {
