@@ -1,4 +1,8 @@
 import type { PokemonDetail } from "../interfaces/pokemon";
+import { handleImages } from "../lib/utils";
+import PokemonInfo from "./PokemonInfo";
+import SlideImage from "./SlideImage";
+import TypeCard from "./TypeCard";
 import {
    Dialog,
    DialogContent,
@@ -12,15 +16,21 @@ interface PokemonDetailProps {
 }
 
 export default function PokemonDetailDialog({ pokemon, onClose }: PokemonDetailProps) {
+   const images = handleImages(pokemon.sprites, pokemon.avatar);
    return <Dialog open={true} onOpenChange={onClose}>
       <DialogContent style={{ backgroundColor: 'white' }}>
          <DialogHeader>
             <DialogTitle>{pokemon.name}</DialogTitle>
-            <DialogDescription>
+            <div className="grid grid-cols-2">
                <div>
-                  
+                  {
+                     pokemon.typesInfo.map(type => <TypeCard key={type.name} type={type} />)
+                  }
+                  <SlideImage images={images} />
+
                </div>
-            </DialogDescription>
+               <PokemonInfo pokemon={pokemon} />
+            </div>
          </DialogHeader>
       </DialogContent>
    </Dialog>
