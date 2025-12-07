@@ -17,17 +17,17 @@ interface PokemonDetailProps {
 
 export default function PokemonDetailDialog({ pokemon, onClose }: PokemonDetailProps) {
    const images = handleImages(pokemon.sprites, pokemon.avatar);
+   const lengthOfType = pokemon.typesInfo.length
    return <Dialog open={true} onOpenChange={onClose}>
-      <DialogContent style={{ backgroundColor: 'white' }}>
+      <DialogContent style={{ backgroundColor: 'white', width: "40%", height: "350px", overflow: "auto" }}>
          <DialogHeader>
             <DialogTitle>{pokemon.name}</DialogTitle>
-            <div className="grid grid-cols-2">
-               <div>
+            <div className="grid grid-cols-2 w-full h-full gap-4">
+               <div className={`grid grid-rows-${lengthOfType} h-full relative`}>
                   {
-                     pokemon.typesInfo.map(type => <TypeCard key={type.name} type={type} />)
+                     pokemon.typesInfo.map(type => <div style={{ backgroundColor: type.color }} key={type.name} />)
                   }
                   <SlideImage images={images} />
-
                </div>
                <PokemonInfo pokemon={pokemon} />
             </div>

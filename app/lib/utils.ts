@@ -6,9 +6,5 @@ export function cn(...inputs: (string | undefined)[]) {
 }
 
 export function handleImages(sprites: (string | null)[], avatar: string | null): string[] {
-   const data = [...new Set(
-      ...sprites,
-      avatar
-   )];
-   return data.filter(e => e !== null);
+   return Array.from(new Set([avatar, ...sprites,].filter(e => e !== null)))
 }

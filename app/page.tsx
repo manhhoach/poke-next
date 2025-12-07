@@ -9,7 +9,7 @@ import { LIMIT } from "./consts/constant";
 import Pagination from "./components/Pagination";
 import Footer from "./components/Footer";
 import { PokemonDetail } from "./interfaces/pokemon";
-import PokemonDetailDialog from "./components/PokemonDetailDialg";
+import PokemonDetailDialog from "./components/PokemonDetailDialog";
 
 
 export default function Home() {
