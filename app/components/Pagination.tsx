@@ -36,11 +36,11 @@ export default function Pagination({
       <div className="mt-5 flex">
          {pages.map((p, i) =>
             p === -1 ? (
-               <span key={i} className="mx-1 px-2">...</span>
+               <span key={i} className="px-2">...</span>
             ) : (
                <button
                   key={i}
-                  className={`mx-1 px-3 py-1 rounded ${p === page ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+                  className={`mx-1 px-3 py-1 rounded ${p === page ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700 cursor-pointer text-xs md:text-base"
                      }`}
                   onClick={() => onPageChange(p)}
                >

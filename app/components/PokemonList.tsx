@@ -7,7 +7,7 @@ interface PokemonListProps {
 }
 
 export default function PokemonList({ pokemons, setCurrentPokemon }: PokemonListProps) {
-   return <div className="w-2/5 mx-auto grid grid-cols-3 gap-10">
+   return <div className="w-9/10 md:w-6/10 mx-auto grid md:grid-cols-3 grid-cols-2 gap-2 md:gap-10">
       {
          pokemons.map((pokemon) => <PokemonCard onClick={() => setCurrentPokemon(pokemon)} pokemon={pokemon} key={pokemon.name}></PokemonCard>)
       }
